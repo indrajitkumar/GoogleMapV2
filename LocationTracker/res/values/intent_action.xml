@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="location_intent">com.brainbox.tracking.LOCATION_READY</string>
+    <string name="message_action">com.brainbox.core.action.MESSAGE</string> <!-- RECEIVER -->
+    <string name="action_refresh">com.brainbox.core.action.REFRESH</string> <!-- RECEIVER -->
+
+</resources>
