@@ -15,11 +15,15 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android2ee.formation.librairies.google.map.utils.direction.DCACallBack;
+import com.android2ee.formation.librairies.google.map.utils.direction.GDirectionsApiUtils;
+import com.android2ee.formation.librairies.google.map.utils.direction.model.GDirection;
 import com.example.utils.SystemConfig;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -33,7 +37,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends Activity implements LocationSource, LocationListener, OnMapClickListener{
+public class MainActivity extends Activity implements LocationSource, LocationListener, OnMapClickListener, DCACallBack{
 	final int RQS_GooglePlayServices = 1;
 	GoogleMap googleMap;
 	TextView tvLocInfo;
@@ -48,7 +52,7 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 	public static double LAT = 21.000;
 	public static double LON = 78.000;
 	//final LatLng INDIA = new LatLng(21.000, 78.000);
-
+	LatLng mDeviceLatLon ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +75,7 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 					R.id.map)).getMap();
 
 			googleMap.setMyLocationEnabled(true);
-
+			googleMap.setTrafficEnabled(true);
 			//googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 			googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 			//myMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
@@ -84,6 +88,7 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 						.show();
 			}
 
+
 			myCriteria = new Criteria();
 			myCriteria.setAccuracy(Criteria.ACCURACY_FINE);
 
@@ -92,7 +97,7 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 			//String provider = myLocationManager.getBestProvider(myCriteria, false);
 			Location location = myLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 			LatLng userLocation = new LatLng(location.getLatitude(),location.getLongitude());
-
+			mDeviceLatLon = userLocation;
 
 			if (googleMap != null) {
 				Marker current_location_marker = googleMap.addMarker(new MarkerOptions().position(userLocation)
@@ -244,7 +249,7 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 		maropt = new MarkerOptions().position(new LatLng(arg0.latitude, arg0.longitude))
 				.snippet("any text").title(address);
 		googleMap.addMarker(maropt);
-
+		getDirections(new LatLng(arg0.latitude, arg0.longitude));
 
 	}
 
@@ -256,5 +261,17 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 			return false;
 		}
 	};
+
+	private void getDirections(LatLng point) {
+		GDirectionsApiUtils.getDirection(this, mDeviceLatLon, point, GDirectionsApiUtils.MODE_WALKING);
+	}
+	@Override
+	public void onDirectionLoaded(List<GDirection> directions) {
+		// Display the direction or use the DirectionsApiUtils
+		for(GDirection direction:directions) {
+			Log.e("MainActivity", "onDirectionLoaded : Draw GDirections Called with path " + directions);
+			GDirectionsApiUtils.drawGDirection(direction, googleMap);
+		}
+	}
 
 }
