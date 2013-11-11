@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 public class SystemException extends Exception {
 	private static final long serialVersionUID = 1L;
 	public String errorCode;

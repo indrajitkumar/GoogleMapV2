@@ -1,5 +1,7 @@
 package com.example.core.helper;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 import com.example.locationtracker.R;
 import com.example.utils.LogUtils;
 

@@ -1,8 +1,7 @@
 package com.example.utils;
 
 /**
- * @author Pramod
- * 
+ * @author Indrajit Kumar (Android)
  */
 public class ErrorConstants {
 	public static final String NETWORK_ERROR = "10000";

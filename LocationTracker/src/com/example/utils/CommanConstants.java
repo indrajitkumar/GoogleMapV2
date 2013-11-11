@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 public interface CommanConstants {
 	public static final String STATUS_OK = "OK";
 	public static final String ADDRESS = "add";

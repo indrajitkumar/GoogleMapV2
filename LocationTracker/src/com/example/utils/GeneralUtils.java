@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;

@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 public class IntentActions {
 
 	public static final String ACTION_SIGN = ".SIGN_ACTION";

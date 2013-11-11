@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 import android.content.pm.PackageInfo;
 import android.location.Location;
 import android.location.LocationManager;

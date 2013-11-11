@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 public class RequestCodes {
 	public static final int REQ_SIGN = 1001;
 	public static final int REQ_CODE_PAY_CARD = 1002;

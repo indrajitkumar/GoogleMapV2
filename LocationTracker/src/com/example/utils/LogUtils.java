@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 //import org.acra.ACRA;
 
 import android.util.Log;

@@ -1,5 +1,7 @@
 package com.example.locationtracker;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 
 import java.io.IOException;
 import java.util.List;
@@ -21,10 +23,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android2ee.formation.librairies.google.map.utils.direction.DCACallBack;
-import com.android2ee.formation.librairies.google.map.utils.direction.GDirectionsApiUtils;
-import com.android2ee.formation.librairies.google.map.utils.direction.model.GDirection;
-import com.example.utils.SystemConfig;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,6 +34,9 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.map.utils.direction.DCACallBack;
+import com.google.map.utils.direction.GDirectionsApiUtils;
+import com.google.map.utils.direction.model.GDirection;
 
 public class MainActivity extends Activity implements LocationSource, LocationListener, OnMapClickListener, DCACallBack{
 	final int RQS_GooglePlayServices = 1;

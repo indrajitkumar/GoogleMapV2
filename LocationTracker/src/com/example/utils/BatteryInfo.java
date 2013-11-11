@@ -1,5 +1,7 @@
 package com.example.utils;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 public class BatteryInfo {
 	public static int level;
 	public static int scale = 100;

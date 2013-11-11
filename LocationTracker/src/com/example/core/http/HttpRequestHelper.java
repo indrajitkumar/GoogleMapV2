@@ -1,5 +1,7 @@
 package com.example.core.http;
-
+/**
+ * @author Indrajit Kumar (Android)
+ */
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
