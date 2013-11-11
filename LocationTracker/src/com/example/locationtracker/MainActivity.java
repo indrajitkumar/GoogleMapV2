@@ -264,7 +264,7 @@ public class MainActivity extends Activity implements LocationSource, LocationLi
 	};
 
 	private void getDirections(LatLng point) {
-		GDirectionsApiUtils.getDirection(this, mDeviceLatLon, point, GDirectionsApiUtils.MODE_WALKING);
+		GDirectionsApiUtils.getDirection(this, mDeviceLatLon, point, GDirectionsApiUtils.MODE_DRIVING);
 	}
 	@Override
 	public void onDirectionLoaded(List<GDirection> directions) {
